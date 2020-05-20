@@ -1,0 +1,31 @@
+<p>Login Form</p>
+
+
+<form #loginForm="ngForm" (ngSubmit)="loginFun(loginForm)">
+    Username:<input type="text" name="user"  ngModel #user="ngModel" required minlength="4" maxlength="6">
+    <div *ngIf="user.invalid && user.touched">
+        <div style="color:red" *ngIf="user.errors.required">User name is mandate</div>
+        <div style="color:red" *ngIf="user.errors.minlength">min of 4 char for User name </div>
+        <div style="color:red" *ngIf="user.errors.maxlength">max of 8 char for User name</div>
+    </div>
+    <br>
+    Password:<input type="password" name="pass" ngModel #pass="ngModel" required>
+    <div *ngIf="pass.invalid && pass.touched">
+        <div style="color:red" *ngIf="pass.errors.required">Password is mandate</div>
+    </div>
+    <br>
+    <input type="submit" value="Login">
+</form>
+
+{{loginForm.value|json}}
+
+<br><br>
+Touched:{{user.touched}}
+UnTouched:{{user.untouched}}<br>
+Dirty:{{user.dirty}}
+Pristine:{{user.pristine}}<br>
+Valid:{{user.valid}}
+Invalid:{{user.invalid}}
+
+<br>
+<a  routerLink="/empl">clik here for Employee details</a>
