@@ -1,0 +1,32 @@
+<p>project-details works!</p>
+
+
+<form #ProjectForm="ngForm" (ngSubmit)="projectFun(ProjectForm)">
+    Project id:<input type="text" name="id"  ngModel #id="ngModel" required  >
+    <div *ngIf="id.invalid && id.touched">
+        <div style="color:red" *ngIf="id.errors.required">project id is mandate</div>
+   </div>
+    <br>
+    Project Name:<input type="text" name="proName" ngModel #proName="ngModel" required>
+    
+    <br>
+    Technology Name:<input type="text" name="proTech" ngModel #proTech="ngModel" required>
+     
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<br><br>
+<table border="5">
+    <tr>
+        <td>Project Id</td>
+        <td>Project Name</td>
+        <td>Project Technology</td>
+    </tr>
+    <tr *ngFor="let p of pserv">    
+        <th>{{p.id}}</th> 
+        <th>{{p.proName}}</th>
+        <th>{{p.proTech}}</th> 
+    </tr>
+</table>
+
