@@ -1,0 +1,38 @@
+<p appHighlighter>directives-sample works!</p>
+
+<div [ngStyle]="{'background-color':'green'}">
+
+    This is attribute directive example
+</div>
+
+<ul *ngFor="let person of people">
+    <li [ngClass]="{
+      'text-success':person.country === 'India',
+      'text-primary':person.country === 'Japan',
+      'text-danger':person.country === 'US'
+    }">{{ person.name }} ({{ person.country }})
+    </li>
+  </ul>
+ 
+  
+<br>
+<p>Switch Example</p>
+<ul [ngSwitch]="empName">
+<li *ngSwitchCase="'vimala'">Hello vimala, welcome....</li>
+<li *ngSwitchCase="'Anu'">Hello Anu, welcome....</li>
+<li *ngSwitchCase="'Tharun'">Hello Tharun, welcome....</li>
+<li *ngSwitchDefault>Sorry u r not there in the loop!!!!!!!</li>
+</ul>
+<div *ngFor="let stack of javaFullStack">
+
+    <ng-container *ngIf="(stack=='Reactjs'); else data">
+        {{stack}} is not used in Java Full stack
+        </ng-container>
+
+        <ng-template #data>
+            {{stack}} is used for FullStack
+        </ng-template>
+
+</div>
+
+<h1 appHighlighter >This is Custom directive</h1>
